@@ -5,7 +5,7 @@ import { ProductsSummaryCard } from './ProductsSummaryCard'
 
 export const ProductsSummary = () => {
   const cart = useSelector(cartProducts);
-
+  
   // Calculate total cart price
   const total = cart.reduce((acc, product) => acc + product.price * product.amount, 0);
 
@@ -17,6 +17,7 @@ export const ProductsSummary = () => {
       
       {/* Display total cart price */}
       <div className='mt-4 font-bold text-xl text-red-500'>Total: {total}$</div>
+      
     </div>
   )
 }

@@ -65,7 +65,7 @@ export default function ContactUs() {
       </div></div>
       {/* 3section */}
       
-    <div className="grid grid-cols-2 gap-4 items-center px-4 py-8 mx-auto mt-4 rounded-md shadow-md bg-gray-50 sm:max-w-md md:max-w-lg lg:max-w-5xl xl:max-w-2xl m-10">
+    <div className="grid grid-cols-2 gap-4 items-center px-4 py-8 mx-auto mt-4 rounded-md shadow-md bg-gray-100 sm:max-w-md md:max-w-lg lg:max-w-5xl xl:max-w-2xl m-10">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">Message us</h1>
         <p className="text-gray-800">We would be happy to get a request or suggestion from you, lets build something great together!</p>

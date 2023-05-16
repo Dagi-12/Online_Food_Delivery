@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 import { Tabs } from "../../components/Tabs";
 import Button from "../../components/elements/Button";
 import { useSelector } from "react-redux";
@@ -7,17 +8,26 @@ import useTabSwitch from '../../hooks/useTabSwitch';
 import { ReactComponent as ArrowRightSvg } from "../../assets/icons/arrow-right-long-svgrepo-com.svg";
 import { AddressForm } from '../../components/AddressForm';
 import { ProductsSummary } from '../../components/ProductsSummary';
+
  
 const Cart=()=> {
-  const cart=useSelector(cartProducts);
-  const tabs= ['Summary', 'Delivery', 'Payment'];
-   const [currentTab, handleTabSwitch] = useTabSwitch(tabs, 'Summary');
+const cart=useSelector(cartProducts);
+const tabs= ['Summary', 'Delivery', 'Payment'];
+const [currentTab, handleTabSwitch] = useTabSwitch(tabs, 'Summary');
+const [cartData, setCartData] = useState(null);
    if (!cart || cart.length === 0) {
         return (
             <div className="bg-white h-full text-black flex justify-center p-4">
                 <h1>Your Cart is empty</h1>
             </div>
         )
+    }
+
+         //modified from the onclick to return the order values
+    const allProducts=()=>{
+setCartData(cart);
+handleTabSwitch('Delivery')
+console.log(cart)
     }
    return (
     
@@ -27,11 +37,13 @@ const Cart=()=> {
             <div className={`tabs ${currentTab !== 'Summary' ? 'hidden' : ''}`}>
                <ProductsSummary/>
                <div className="flex justify-end p-2">
-                <Button variant="dark" className="flex items-center" onClick={()=>handleTabSwitch('Delivery')}><span className="mr-1">Next</span><ArrowRightSvg /></Button>
-            </div>
+               
+                <Button variant="dark" className="flex items-center" onClick={allProducts}><span className="mr-1">Next</span><ArrowRightSvg /></Button>
+            
+             </div>
             </div>
             <div className={`tabs ${currentTab !== 'Delivery' ? 'hidden' : ''}`}>
-               <AddressForm onTabSwitch={handleTabSwitch}/>
+               <AddressForm onTabSwitch={handleTabSwitch} cart={cartData}/>
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
                Payment form
@@ -39,4 +51,4 @@ const Cart=()=> {
             </div>
   )
 }
-export default Cart
+export default Cart  

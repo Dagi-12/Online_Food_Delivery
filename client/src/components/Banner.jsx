@@ -6,8 +6,8 @@ export const Banner=()=>{
                 <h2 className="mb-6 text-4xl font-bold text-Black">Food Ordering made easy</h2>
                 <p className="font-semibold text-lg text-black py-2">We deliver our kitchen's finest offerings to your doorstep with utmost speed.</p>
                 <div className="btn-container">
-                    <Button>Order Now</Button>
-                    <a href="/login" className="text-yellow-400 hover:text-yellw-500 font-bond text-decoration-line px 3">See Menu</a>
+                    
+                    <a href="/login" className="text-yellow-400 font-bold text-4xl hover:text-orange-500  text-decoration-line px 3">See Menu</a>
                 </div>
             </div>
             <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">

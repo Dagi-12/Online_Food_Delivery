@@ -1,17 +1,24 @@
 import { useForm } from "react-hook-form";
+import { useState,useEffect } from "react";
 import Button from "./elements/Button";
 import { ReactComponent as ArrowRightSvg } from "../assets/icons/arrow-right-long-svgrepo-com.svg";
 import { useDispatch } from "react-redux";
 import { setAddress } from "../stores/userInfo/addressSlice";
-export const AddressForm = ({onTabSwitch}) => {
+export const AddressForm = ({onTabSwitch,cart}) => {
     //what we require from the use form are the followings
     const { register, handleSubmit, formState:{errors}} = useForm();
     const dispatch=useDispatch();
     
+
+
+
+
     const onSubmit=(data)=>{
         //to send the address and record it in stores/userinfo
         dispatch(setAddress(data));
         onTabSwitch('Payment');
+        console.log(data)
+        console.log(cart)
     }
 
     return (

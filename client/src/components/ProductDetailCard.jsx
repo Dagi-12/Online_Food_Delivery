@@ -6,7 +6,7 @@ const ProductDetailCard = ({ product,onAddProduct }) => {
             <div className="flex flex-col items-center justify-between w-300">
                 <h2 className="text-3xl">{product.name}</h2>
                 <p className="text-2xl text-gray-500">
-                    {product.desciption}
+                    {product.description}
                 </p>
                 <div className="flex items-center justify-between">
                 <div className="text-3xl text-black">{product.price}</div>

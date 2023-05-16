@@ -24,6 +24,7 @@ export const RiderRegistration = () => {
      
       navigate(`/rider-sucess?firstName=${data.firstName}`);
       // Reset the form
+      
     } else {
       console.error('Failed to create rider');
     }
@@ -35,6 +36,13 @@ export const RiderRegistration = () => {
 
 
   return (
+    <>
+    <div className="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8">
+  <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Become a Rider for Our Company</h2>
+  <p className="text-gray-700 text-lg leading-loose mb-8">At our company, we're always on the lookout for talented and motivated riders to join our team. If you're passionate about delivering great service to our customers and want to become a part of our growing community, we encourage you to apply using the following form. Simply fill out your details and submit your application, and we'll get back to you as soon as possible.</p>
+  <p className="text-gray-700 text-lg leading-loose">After submitting your application, our team will carefully review your information and contact you to discuss the next steps in the application process. We appreciate your interest in working with our company, and we look forward to hearing from you soon.</p>
+</div>
+
     <div className=' m-50 '>
     <div className="h-full bg-white flex items-center justify-center mb-10 mt-10 " >
      
@@ -142,5 +150,5 @@ export const RiderRegistration = () => {
            </div>
            </div>
            </div>
-           </div>)}
+           </div></>)}
 

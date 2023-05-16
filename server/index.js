@@ -36,6 +36,7 @@ require('dotenv').config();
 const express=require('express');
 const bodyParser=require("body-parser");
 const cors =require("cors");
+const Product = require('./models/productModel')
 
 const db=require('./db');
 const app=express();
@@ -60,15 +61,19 @@ const adminRouter =require('./routes/adminRouter')
 const authRouter=require('./routes/auths')
 //Contact us 
 const contactUsRouter=require('./routes/contactUsRouter')
+//restaurants 
+const restaurantRouter=require('./routes/restaurantRouter')
 
 const { configure } = require('@testing-library/react');
+//fetching imports
 const Partner = require('./models/partnerModel');
 const ContactUs=require('./models/contactUsModel');
-const Rider=require('./models/riderModel')
+const Rider=require('./models/riderModel');
+const Restaurant=require('./models/restaurantModel');
 
 
 var corsOptions = {
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "http://localhost:3001"]
 }
 
 
@@ -88,6 +93,7 @@ app.use('/api/', partnerRouter);
 app.use('/api/', adminRouter);
 app.use('/api/', authRouter);
 app.use('/api/', contactUsRouter);
+app.use('/api/', restaurantRouter);
 //products
 // app.use('/api/', productsRouter);
 
@@ -117,6 +123,46 @@ app.get("/getAllPartners",async(req,res)=>{
     }
 })
 
+//posting using the  product or adddig menu 
+app.post('/products', async (req, res) => {
+  try {
+    const { name, adjective, description, price, category, imageUrl, email } = req.body;
+
+    Product.findOne({ 'category.name': category })
+      .then((response) => {
+        if (response !== null) {
+          const newProduct = new Product({
+            name: name,
+            adjective: adjective,
+            description: description,
+            price: price,
+            category: { name: category, email: email, _id: response.category._id },
+            imageUrl: imageUrl,
+          });
+          console.log(newProduct);
+          newProduct.save();
+          res.json(newProduct);
+        } else {
+          const newProduct = new Product({
+            name: name,
+            adjective: adjective,
+            description: description,
+            price: price,
+            category: { name: category, email: email },
+            imageUrl: imageUrl,
+          });
+          console.log(newProduct);
+          newProduct.save();
+          res.json(newProduct);
+        }
+      });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while creating the product' });
+  }
+});
+
+
 //creating API for fetching data for feedback forms
  app.get("/getFeedBack",async(req,res)=>{
     try{
@@ -127,11 +173,22 @@ app.get("/getAllPartners",async(req,res)=>{
     }
  })
 
+
  //creating API for rider application 
 app.get("/getRiderApplication",async(req,res)=>{
     try{
         const application=await Rider.find({});
         res.send({status:"ok",data:application});
+    }catch(error){
+        console.log(error)
+    }
+})
+
+//creating API for fetching data for all restaurants(registerd partners)
+app.get("/getAllRestaurants",async(req,res)=>{
+    try{
+        const restaurants=await Restaurant.find({});
+        res.send({status:"ok",data:restaurants});
     }catch(error){
         console.log(error)
     }

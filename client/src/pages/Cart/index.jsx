@@ -8,6 +8,7 @@ import useTabSwitch from '../../hooks/useTabSwitch';
 import { ReactComponent as ArrowRightSvg } from "../../assets/icons/arrow-right-long-svgrepo-com.svg";
 import { AddressForm } from '../../components/AddressForm';
 import { ProductsSummary } from '../../components/ProductsSummary';
+import PaymentForm from '../../components/PaymentForm';
 
  
 const Cart=()=> {
@@ -46,7 +47,7 @@ console.log(cart)
                <AddressForm onTabSwitch={handleTabSwitch} cart={cartData}/>
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
-               Payment form
+              <PaymentForm/>
             </div>
             </div>
   )

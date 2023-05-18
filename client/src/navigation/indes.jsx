@@ -14,6 +14,7 @@ import { cartProducts } from "../stores/cart/cartSlice";
 import { Footer } from "../components/Footer";
 import  {RiderSucess}  from "../pages/RiderSucess";
 import PartnerSucess from "../pages/PartnerSucess";
+import { About } from "../pages/About";
 const Navigation=()=>{
 
   const productsInCart = useSelector(cartProducts);
@@ -30,6 +31,7 @@ return(
         <Route path="/partner-registration" element={<PartnerRegistration/>}/>
         <Route path="/menu" element={<Menu/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/about-us" element={<About/>}/>
         <Route path="/payment-sucess" element={<PaymentSuccess/>}/>
         <Route path="/rider-sucess" element={<RiderSucess/>}/>
         <Route path="/partner-sucess" element={<PartnerSucess/>}/>

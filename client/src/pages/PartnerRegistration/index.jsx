@@ -3,6 +3,8 @@ import Button from "../../components/elements/Button";
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
+import  { useEffect, useRef } from 'react';
+import 'animate.css';
 
 export default function PartnerRegistration() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -30,8 +32,45 @@ export default function PartnerRegistration() {
   }
   setLoading(false);
 };
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    headerRef.current.classList.add('animate__animated', 'animate__fadeIn');
+  }, []);
 
   return (
+    <>
+      <div className="container mx-auto py-8">
+      <h2
+        className="text-3xl font-bold mb-4 text-orange-500"
+        ref={headerRef}
+      >
+        Welcome to being our partner and working with us to become our alliance and work with us. Follow the following steps and become our partner:
+      </h2>
+      <ol className="list-decimal list-outside ">
+        <li className="mb-3 font-semibold text-lg ">
+          Fill the following form correctly and submit.
+        </li>
+        <li className="mb-3 font-semibold text-lg">
+          We will receive your form and review it.
+        </li>
+        <li className="mb-3 font-semibold text-lg">
+          Based on the email address you provided, we will notify you whether you are valid or not valid for becoming our partner.
+        </li>
+        <li className="mb-3 font-semibold text-lg">
+          If you are valid, we will further contact you through your email regarding the products and services that you want to provide.
+        </li>
+        <li className="mb-3 font-semibold text-lg">
+          Then, you will send us your products that we are going to add to our website through email.
+        </li>
+        <li className="mb-3 font-semibold text-lg">
+          Finally, your products will be accessible to a wide range of customers.
+        </li>
+      </ol>
+      <p className="text-4xl font-bold text-orange-500 mt-8">
+        Let's get started!
+      </p>
+    </div>
    <div className=' m-50   '>
     <div className="h-full bg-white flex items-center justify-center mb-10 mt-10 " >
      
@@ -122,6 +161,6 @@ export default function PartnerRegistration() {
            </div>
            </div>
            </div>
-           </div>
+           </div></>
   )
 }

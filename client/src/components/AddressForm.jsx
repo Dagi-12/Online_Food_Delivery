@@ -4,11 +4,64 @@ import Button from "./elements/Button";
 import { ReactComponent as ArrowRightSvg } from "../assets/icons/arrow-right-long-svgrepo-com.svg";
 import { useDispatch } from "react-redux";
 import { setAddress } from "../stores/userInfo/addressSlice";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export const AddressForm = ({onTabSwitch,cart}) => {
     //what we require from the use form are the followings
     const { register, handleSubmit, formState:{errors}} = useForm();
     const dispatch=useDispatch();
-    
+
+
+    //email part
+const sendEmail = (data, cartValue, recipientEmail) => {
+  const { address, city, state } = data; // Extract the address value from data
+
+  const formattedCartValue = cartValue.map((item) => {
+    return `${item.name}: ${item.amount}`; // Format each item as "name: amount"
+  });
+
+  const templateParams = {
+    to_email: recipientEmail,
+  
+    address: address, // Use the extracted address value
+    city: city, // Use the extracted address value
+    state: state, // Use the extracted address value
+    cartValue: formattedCartValue.join(","), // Join the formatted cartValue array with line breaks
+  };
+
+  emailjs
+    .send(
+      "service_1acc5y9",
+      "template_0bw187s",
+      templateParams,
+      "319NcNThA74MK8pzY"
+    )
+    .then((response) => {
+      console.log("Email sent successfully!", response.text);
+      // Handle success, e.g., display a success message to the user
+      toast.success("Orderd successfully! and notification email sent✅", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    })
+    .catch((error) => {
+      console.error("Error sending email:", error);
+      toast.error('❌Error sending the order')
+      // Handle error, e.g., display an error message to the user
+    });
+};
+
+
+    //emal part
 
 
 
@@ -18,7 +71,12 @@ export const AddressForm = ({onTabSwitch,cart}) => {
         dispatch(setAddress(data));
         onTabSwitch('Payment');
         console.log(data)
-        console.log(cart)
+      
+        const recipientEmail = cart[0].category.email;
+        const cartValue=cart
+          console.log( cartValue);
+          sendEmail(data, cartValue,recipientEmail);
+
     }
 
     return (

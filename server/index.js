@@ -113,15 +113,7 @@ db.on('open',()=>{
     console.log('Failed to conncet to db :',error)
 })
 
-//Creating API for fetching data of partners
-app.get("/getAllPartners",async(req,res)=>{
-    try{
-        const allPartner =await Partner.find({});
-        res.send({status:"ok",data:allPartner});
-    }catch(error){
-        console.log(error)
-    }
-})
+
 
 //posting using the  product or adddig menu 
 app.post('/products', async (req, res) => {
@@ -161,9 +153,28 @@ app.post('/products', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while creating the product' });
   }
 });
+// DELETE endpoint for deleting a product
+app.delete("/products", async (req, res) => {
+  try {
+    const { name, category } = req.query;
 
+    const deletedProduct = await Product.findOneAndDelete({
+      name: name,
+      "category.name": category,
+    });
 
-//creating API for fetching data for feedback forms
+    if (deletedProduct) {
+      res.json({ message: "Product deleted successfully" });
+    } else {
+      res.status(404).json({ error: "Product not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while deleting the product' });
+  }
+});
+
+//creating endpoint for fetching data for feedback forms
  app.get("/getFeedBack",async(req,res)=>{
     try{
         const feedback =await ContactUs.find({});
@@ -173,8 +184,17 @@ app.post('/products', async (req, res) => {
     }
  })
 
+ //Creating endpoint for fetching data of partners requests
+app.get("/getAllPartners",async(req,res)=>{
+    try{
+        const allPartner =await Partner.find({});
+        res.send({status:"ok",data:allPartner});
+    }catch(error){
+        console.log(error)
+    }
+})
 
- //creating API for rider application 
+ //creating endpoint for rider application 
 app.get("/getRiderApplication",async(req,res)=>{
     try{
         const application=await Rider.find({});
@@ -184,7 +204,7 @@ app.get("/getRiderApplication",async(req,res)=>{
     }
 })
 
-//creating API for fetching data for all restaurants(registerd partners)
+//creating endpoint for fetching data for all restaurants(registerd partners)
 app.get("/getAllRestaurants",async(req,res)=>{
     try{
         const restaurants=await Restaurant.find({});

@@ -211,5 +211,21 @@ app.get("/getAllRestaurants",async(req,res)=>{
         res.send({status:"ok",data:restaurants});
     }catch(error){
         console.log(error)
-    }
-})
+    }   
+})   
+//Chapa
+
+// app.get('/PaymentForm', (req, res) => {
+//   const responseData = {
+//     message: 'Hosted Link',
+//     status: 'success',
+//     data: {
+//       checkout_url:
+//         'https://checkout.chapa.co/checkout/payment/V38JyhpTygC9QimkJrdful9oEjih0heIv53eJ1MsJS6xG',
+//     },
+//   };
+
+//   res.json(responseData);
+// });
+
+

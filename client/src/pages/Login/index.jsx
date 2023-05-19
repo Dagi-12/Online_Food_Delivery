@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div className="h-screen bg-white flex  items-center justify-center">
             <div className="rounded-lg max-w-md w-full flex flex-col items-center justify-center relative">
-                <div className="absolute inset-0 transition duration-300 animate-pink blur  gradient bg-gradient-to-tr from-blue-500 to-purple-500"></div>
+                <div className="absolute inset-0 transition duration-300 animate-pink blur  gradient bg-gradient-to-tr from-green-500 to-purple-500"></div>
                 <div className="p-10 rounded-xl z-10 w-full h-full bg-white">
                     <h5 className="text-3xl">Login</h5>
                 <form className="w-full space-y-6" onSubmit={handleSubmit(onSubmit)}>

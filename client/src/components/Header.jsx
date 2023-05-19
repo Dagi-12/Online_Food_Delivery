@@ -29,7 +29,7 @@
 
 //     </nav>
 //   )
-// }
+// }FaHome
 //////////////////////////////////////////////////////
 
 
@@ -39,7 +39,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from "./elements/Button";
 import { useEffect, useState } from "react";
-
+import { FaHome } from "react-icons/fa";
 export const Header = ({ cartCount }) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -77,7 +77,7 @@ export const Header = ({ cartCount }) => {
                     </Link>
                 </div>
                 <div className="font-bold nav-menu-wrapper flex items-center justify-between space-x-10">
-                    <Link to="/" className="text-2xl">Home</Link>
+                    <Link to="/" className="text-2xl">Home <FaHome className="inline-block mr-2" /></Link>
                     <Link to="about-us" className="text-2xl">About</Link>
                     <Link to="contact-us" className="text-2xl">Contact_Us</Link>
                 </div>

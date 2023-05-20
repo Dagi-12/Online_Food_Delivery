@@ -10,7 +10,6 @@ import { AddressForm } from '../../components/AddressForm';
 import { ProductsSummary } from '../../components/ProductsSummary';
 import PaymentForm from '../../components/PaymentForm';
 
- 
 const Cart=()=> {
 const cart=useSelector(cartProducts);
 const tabs= ['Summary', 'Delivery', 'Payment'];
@@ -47,7 +46,7 @@ console.log(cart)
                <AddressForm onTabSwitch={handleTabSwitch} cart={cartData}/>
             </div>
             <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
-              <PaymentForm/>
+             <PaymentForm/>
             </div>
             </div>
   )

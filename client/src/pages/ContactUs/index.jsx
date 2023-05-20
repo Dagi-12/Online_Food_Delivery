@@ -44,7 +44,7 @@ export default function ContactUs() {
     <div>
         <h2 className="mb-6 text-5xl font-bold text-gray-700 text-center p-5">GET IN TOUCH!</h2>
         {/* 3 section */}
-        <div className='mr-5 ml-5 p-2 bg-gradient-to-r from-orange-300 via-purple-300 to-green-300 rounded-md'>
+        <div className='mr-5 ml-5 p-2 bg-gradient-to-r from-amber-300 via-purple-300 to-green-300 rounded-md'>
          <div className="flex flex-wrap mt-8 w-full justify-between ">
         <div className="w-full sm:w-auto mb-4 sm:mb-0">
           <h1 className="font-bold mb-2 text-xl">Address</h1>

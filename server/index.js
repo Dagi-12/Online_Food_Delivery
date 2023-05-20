@@ -213,19 +213,38 @@ app.get("/getAllRestaurants",async(req,res)=>{
         console.log(error)
     }   
 })   
-//Chapa
+//Chapa///
 
-// app.get('/PaymentForm', (req, res) => {
-//   const responseData = {
-//     message: 'Hosted Link',
-//     status: 'success',
-//     data: {
-//       checkout_url:
-//         'https://checkout.chapa.co/checkout/payment/V38JyhpTygC9QimkJrdful9oEjih0heIv53eJ1MsJS6xG',
-//     },
-//   };
+// app.post('/callback', async (req, res) => {
+//   // Retrieve the status and tx_ref from the request body
+//   const { status, tx_ref } = req.body;
 
-//   res.json(responseData);
+//   // Verify the transaction using the Chapa API
+//   try {
+//     const response = await axios.get(`https://api.chapa.co/v1/transaction/verify/${tx_ref}`, {
+//       headers: {
+//         Authorization: 'CHASECK_TEST-1KoOApZC2ATOa8FDSAAiAhy6Pz8plIar', // Replace with your Chapa secret key
+//       },
+//     });
+//    const { data } = response.data;
+    
+//     // Handle the transaction status
+//     if (status === 'successful') {
+//       // Transaction is successful
+//       // Perform any necessary actions, such as updating your database or sending email notifications
+//       console.log('Payment successful:', data);
+//     } else if (status === 'failed') {
+//       // Transaction failed
+//       console.log('Payment failed:', data);
+//     } else {
+//       // Transaction status is unknown or not handled
+//       console.log('Unknown transaction status:', data);
+//     }
+//   } catch (error) {
+//     console.error('Error:', error);
+//   }
+
+//   // Send a response indicating the callback has been handled successfully
+//   res.sendStatus(200);
 // });
-
 

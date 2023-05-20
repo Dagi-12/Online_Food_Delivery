@@ -1,146 +1,90 @@
-// import React ,{useEffect,useState}from 'react'
-// import axios from "axios";
-// export default function PaymentForm() {
-//     const [response, setResponse] = useState("");
-//   const [error, setError] = useState("");
-//   const [amount, setAmount] = useState("");
-//   const [currency, setCurrency] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [firstName, setFirstName] = useState("");
-//   const [lastName, setLastName] = useState("");
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [txRef, setTxRef] = useState("chewatatest-6669");
-//   const [callbackUrl, setCallbackUrl] = useState(
-//     window.location.href + "/callback"
-//   );
-//   const [returnUrl, setReturnUrl] = useState(window.location.href);
-//   const [title, setTitle] = useState(" ");
-//   const [description, setDescription] = useState("");
-//  const handlePayment = () => {
-//   const requestOptions = {
-//     method: "POST",
-//     headers: {
-//       Authorization: "Bearer CHASECK_TEST-69uuVj151ueF6Uiessh8Elie8utu23VT",
-//       "Content-Type": "application/json",
-//     },
-//     data: {
-//       amount,
-//       currency,
-//       email,
-//       first_name: firstName,
-//       last_name: lastName,
-//       phone_number: phoneNumber,
-//       tx_ref: txRef,
-//       callback_url: callbackUrl,
-//       return_url: returnUrl,
-//       customization: {
-//         title,
-//         description,
-//       },
-//     },
-//   };
+import React, { useState } from 'react';
+import Pay from './Pay';
 
-//   axios
-//     .post("https://api.chapa.co/v1/transaction/initialize", requestOptions)
-//     .then((response) => response.data)
-//     .then((data) => {
-//       // Redirect the user to the checkout URL returned by the Chapa API
-//       window.location.href = data.data.checkout_url;
-//     })
-//     .catch((error) => {
-//       // Handle errors (e.g., network error, server down, etc)
-//       console.error("Error:", error);
-//     });
-// };
+export default function PaymentForm() {
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [email, setEmail] = useState('');
+  const [amount, setAmount] = useState('50');
+  const tx_ref = `${fname}-tx-5202023`;
+  const public_key = 'CHAPUBK_TEST-1Ks6af4nuwRg9hBpIhrbE6LG3k9BpFi6';
 
-//   return (
-//     <div>
-//  <div className="paymentdetail">
-//            <form onSubmit={handlePayment} className="max-w-xs mx-auto">
-//   <input
-//     type="text"
-//     value={amount}
-//     onChange={(e) => setAmount(e.target.value)}
-//     placeholder="Amount"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="text"
-//     value={currency}
-//     onChange={(e) => setCurrency(e.target.value)}
-//     placeholder="Currency"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="email"
-//     value={email}
-//     onChange={(e) => setEmail(e.target.value)}
-//     placeholder="Email"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="text"
-//     value={firstName}
-//     onChange={(e) => setFirstName(e.target.value)}
-//     placeholder="First Name"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="text"
-//     value={lastName}
-//     onChange={(e) => setLastName(e.target.value)}
-//     placeholder="Last Name"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="text"
-//     value={phoneNumber}
-//     onChange={(e) => setPhoneNumber(e.target.value)}
-//     placeholder="Phone Number"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="text"
-//     value={txRef}
-//     onChange={(e) => setTxRef(e.target.value)}
-//     placeholder="Transaction Reference"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="hidden"
-//     value={callbackUrl}
-//     onChange={(e) => setCallbackUrl(e.target.value)}
-//     placeholder="Callback URL"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="hidden"
-//     value={returnUrl}
-//     onChange={(e) => setReturnUrl(e.target.value)}
-//     placeholder="Return URL"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />   
-//   <input
-//     type="hidden"
-//     value={title}
-//     onChange={(e) => setTitle(e.target.value)}
-//     placeholder="Title"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
-//   <input
-//     type="hidden"
-//     value={description}
-//     onChange={(e) => setDescription(e.target.value)}
-//     placeholder="Description"
-//     className="border border-gray-300 rounded-md px-4 py-2 mb-2 w-full"
-//   />
+  const handleFnameChange = (e) => {
+    setFname(e.target.value);
+  };
 
-//   <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-//     Pay Now
-//   </button>
-// </form>
+  const handleLnameChange = (e) => {
+    setLname(e.target.value);
+  };
 
-//           </div>
-//     </div>
-//   )
-// }import React, { useState } from 'react';
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
+
+  return (
+    <div className="container mx-auto py-8">
+      <div className="max-w-md mx-auto bg-white p-6 ">
+        <h2 className="text-2xl font-medium mb-4 text-center">Payment Form</h2>
+        <form>
+          <div className="mb-4">
+            <label htmlFor="fname" className="text-gray-800 font-bold text-center">
+              First Name
+            </label>
+            <input
+              id="fname"
+              onChange={handleFnameChange}
+              
+              type="text"
+              className="bg-gray-100 px-3 py-2 rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="lname" className="text-gray-800 font-bold">
+              Last Name
+            </label>
+            <input
+              id="lname"
+              onChange={handleLnameChange}
+              type="text"
+              className="bg-gray-100 px-3 py-2 rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="text-gray-800 font-bold">
+              Email
+            </label>
+            <input
+              id="email"
+              onChange={handleEmailChange}
+              type="email"
+              className="bg-gray-100 px-3 py-2 rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="amount" className="text-gray-800 font-bold">
+              Amount
+            </label>
+            <input
+              id="amount"
+              onChange={handleAmountChange}
+              type="number"
+              className="bg-gray-100 px-3 py-2 rounded w-full"
+            />
+          </div>
+          <Pay
+            fname={fname}
+            lname={lname}
+            email={email}
+            amount={amount}
+            tx_ref={tx_ref}
+            public_key={public_key}
+          />
+        </form>
+      </div>
+    </div>
+  );
+}

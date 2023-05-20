@@ -39,7 +39,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from "./elements/Button";
 import { useEffect, useState } from "react";
-import { FaHome } from "react-icons/fa";
+import { FaHome,FaSignOutAlt } from "react-icons/fa";
 export const Header = ({ cartCount }) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,7 +69,7 @@ export const Header = ({ cartCount }) => {
     }, [])
 
     return (
-        <nav id="header" className="gradient bg-gradient-to-tr from-white to-orange-600 text-white rounded-md mx-3">
+        <nav id="header" className="gradient bg-gradient-to-tr from-amber-200 to-orange-400 text-white rounded-md mx-3">
             <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
                 <div className="logo-wrapper pl-4 flex items-center">
                     <Link to="/" className="toggleColor text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
@@ -77,22 +77,22 @@ export const Header = ({ cartCount }) => {
                     </Link>
                 </div>
                 <div className="font-bold nav-menu-wrapper flex items-center justify-between space-x-10">
-                    <Link to="/" className="text-2xl">Home <FaHome className="inline-block mr-2" /></Link>
-                    <Link to="about-us" className="text-2xl">About</Link>
-                    <Link to="contact-us" className="text-2xl">Contact_Us</Link>
+                    <Link to="/" className="text-2xl hover:text-black">Home <FaHome className="inline-block mr-2" /></Link>
+                    <Link to="about-us" className="text-2xl hover:text-black">About</Link>
+                    <Link to="contact-us" className="text-2xl hover:text-black">Contact_Us</Link>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
-                    <Link to="/cart" className="mr-4 relative">
+                    <Link to="/cart" className="mr-4 relative ">
                         <img  src={cartIcon} alt="cart"/>
                         {cartCount > 0 ? <div className="rounded-full bg-yellow-400 text-white inline-flex justify-center items-center w-full absolute -top-1 -right-1">{cartCount}</div> : null}
                     </Link>
                     {
                         isLoggedIn ? 
-                        <Button onClick={handleLogout}>Log Out</Button> : 
+                        <Button onClick={handleLogout} className="hover:text-black"> <FaSignOutAlt className="inline-block mr-2 " />Log Out</Button> : 
                         (
                             <>
-                             <Link className="text-xl" to="/login">Log In</Link>
-                             <Link className="text-xl"to="/register">Sign Up</Link>
+                             <Link className="text-xl font-bold hover:text-black" to="/login">Log In</Link>
+                             <Link className="text-xl font-bold hover:text-black"to="/register ">Sign Up</Link>
                             </>
                         )
                     }

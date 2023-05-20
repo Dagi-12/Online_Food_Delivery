@@ -8,6 +8,7 @@ const adminSchema = new mongoose.Schema({
 	lastName: { type: String, required: true },
 	email: { type: String, required: true },
 	password: { type: String, required: true },
+	 secretKey: { type: String, required: true },
 });
 
 adminSchema.methods.generateAuthToken = function () {
@@ -25,6 +26,8 @@ const validate = (data) => {
 		lastName: Joi.string().required().label("Last Name"),
 		email: Joi.string().email().required().label("Email"),
 		password: passwordComplexity().required().label("Password"),
+		 secretKey: Joi.string().required().label("Secret Key"), 
+		
 	});
 	return schema.validate(data);
 };

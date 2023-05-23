@@ -5,7 +5,7 @@ export default function PaymentForm() {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [email, setEmail] = useState('');
-  const [amount, setAmount] = useState('50');
+  // const [amount, setAmount] = useState('50');
   const tx_ref = `${fname}-tx-5202023`;
   const public_key = 'CHAPUBK_TEST-1Ks6af4nuwRg9hBpIhrbE6LG3k9BpFi6';
 
@@ -13,7 +13,7 @@ export default function PaymentForm() {
     setFname(e.target.value);
   };
 
-  const handleLnameChange = (e) => {
+  const handleLnameChange = (e) => { 
     setLname(e.target.value);
   };
 
@@ -21,9 +21,9 @@ export default function PaymentForm() {
     setEmail(e.target.value);
   };
 
-  const handleAmountChange = (e) => {
-    setAmount(e.target.value);
-  };
+  // const handleAmountChange = (e) => {
+  //   setAmount(e.target.value);
+  // };
 
   return (
     <div className="container mx-auto py-8">
@@ -64,7 +64,7 @@ export default function PaymentForm() {
               className="bg-gray-100 px-3 py-2 rounded w-full"
             />
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label htmlFor="amount" className="text-gray-800 font-bold">
               Amount
             </label>
@@ -74,12 +74,12 @@ export default function PaymentForm() {
               type="number"
               className="bg-gray-100 px-3 py-2 rounded w-full"
             />
-          </div>
+          </div> */}
           <Pay
             fname={fname}
             lname={lname}
             email={email}
-            amount={amount}
+            // amount={amount}
             tx_ref={tx_ref}
             public_key={public_key}
           />

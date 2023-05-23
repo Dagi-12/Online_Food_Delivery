@@ -40,7 +40,7 @@ export default function PartnerRegistration() {
 
   return (
     <>
-      <div className="container mx-auto py-8">
+      <div className="container mx-auto py-8 px-5">
       <h2
         className="text-3xl font-bold mb-4 text-orange-500"
         ref={headerRef}

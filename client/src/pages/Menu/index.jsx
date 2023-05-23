@@ -50,6 +50,7 @@ const Menu = () => {
   const [activeTab, setActiveTab] = useState('');
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);

@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux'
 import { cartProducts } from '../stores/cart/cartSlice'
 import { ProductsSummaryCard } from './ProductsSummaryCard'
 
+export let total; 
 export const ProductsSummary = () => {
   const cart = useSelector(cartProducts);
   
   // Calculate total cart price
-  const total = cart.reduce((acc, product) => acc + product.price * product.amount, 0);
+   total = cart.reduce((acc, product) => acc + product.price * product.amount, 0);
 
   return (
     <div className='flex flex-col'>
@@ -21,4 +22,5 @@ export const ProductsSummary = () => {
     </div>
   )
 }
+
 

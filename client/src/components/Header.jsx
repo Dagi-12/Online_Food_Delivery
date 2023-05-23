@@ -77,7 +77,7 @@ export const Header = ({ cartCount }) => {
                     </Link>
                 </div>
                 <div className="font-bold nav-menu-wrapper flex items-center justify-between space-x-10">
-                    <Link to="/" className="text-2xl hover:text-black">Home <FaHome className="inline-block mr-2" /></Link>
+                    <Link to="/" className="text-2xl hover:text-black"><FaHome className="inline-block mr-2 text-4xl hover:text-black" /></Link>
                     <Link to="about-us" className="text-2xl hover:text-black">About</Link>
                     <Link to="contact-us" className="text-2xl hover:text-black">Contact_Us</Link>
                 </div>

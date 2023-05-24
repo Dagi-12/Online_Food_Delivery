@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import { useState } from 'react';
 import { Tabs } from "../../components/Tabs";
 import Button from "../../components/elements/Button";
@@ -23,12 +25,24 @@ const [cartData, setCartData] = useState(null);
         )
     }
 
-         //modified from the onclick to return the order values
-    const allProducts=()=>{
-setCartData(cart);
-handleTabSwitch('Delivery')
-console.log(cart)
-    }
+         //just passes the cart values
+//     const allProducts=()=>{
+// setCartData(cart);
+// handleTabSwitch('Delivery')
+// console.log(cart)
+//     }
+//new
+const allProducts = async () => {
+  try {
+    const response = await axios.post('http://localhost:4000/api/orders', { cart: cart });
+    const { data } = response;
+    console.log('Order recorded:', data);
+    setCartData(cart);
+    handleTabSwitch('Delivery');
+  } catch (error) {
+    console.error('Error recording order:', error);
+  }
+};
    return (
     
      <div className="bg-white  text-black mx-auto mt-2 border mb-10 border-gray-200 p-4 md:w-2/3 rounded-lg shadow-md sm:p-6 lg:p-8  min-h-screen flex flex-col  pt-8 sm:justify-center">

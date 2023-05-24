@@ -63,6 +63,8 @@ const authRouter=require('./routes/auths')
 const contactUsRouter=require('./routes/contactUsRouter')
 //restaurants 
 const restaurantRouter=require('./routes/restaurantRouter')
+//order
+const orderRouter = require('./routes/orderRouter');
 
 const { configure } = require('@testing-library/react');
 //fetching imports
@@ -94,6 +96,7 @@ app.use('/api/', adminRouter);
 app.use('/api/', authRouter);
 app.use('/api/', contactUsRouter);
 app.use('/api/', restaurantRouter);
+app.use('/api/', orderRouter);
 //products
 // app.use('/api/', productsRouter);
 
@@ -213,38 +216,6 @@ app.get("/getAllRestaurants",async(req,res)=>{
         console.log(error)
     }   
 })   
-//Chapa///
+//orders recording endpoint
 
-// app.post('/callback', async (req, res) => {
-//   // Retrieve the status and tx_ref from the request body
-//   const { status, tx_ref } = req.body;
-
-//   // Verify the transaction using the Chapa API
-//   try {
-//     const response = await axios.get(`https://api.chapa.co/v1/transaction/verify/${tx_ref}`, {
-//       headers: {
-//         Authorization: 'CHASECK_TEST-1KoOApZC2ATOa8FDSAAiAhy6Pz8plIar', // Replace with your Chapa secret key
-//       },
-//     });
-//    const { data } = response.data;
-    
-//     // Handle the transaction status
-//     if (status === 'successful') {
-//       // Transaction is successful
-//       // Perform any necessary actions, such as updating your database or sending email notifications
-//       console.log('Payment successful:', data);
-//     } else if (status === 'failed') {
-//       // Transaction failed
-//       console.log('Payment failed:', data);
-//     } else {
-//       // Transaction status is unknown or not handled
-//       console.log('Unknown transaction status:', data);
-//     }
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-
-//   // Send a response indicating the callback has been handled successfully
-//   res.sendStatus(200);
-// });
 

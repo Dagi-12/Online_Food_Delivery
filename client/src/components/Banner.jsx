@@ -31,9 +31,14 @@ export const Banner = () => {
           We deliver our kitchen's finest offerings to your doorstep with utmost speed.
         </p>
         <div className="btn-container">
-          <Button onClick={handleSeeMenu} className="text-white font-bold text-5xl hover:text-black hover:bg-white">
-            See Menu
-          </Button>
+   <button
+  onClick={handleSeeMenu}
+  className="text-white font-bold text-2xl bg-orange-400 hover:bg-orange-500 hover:text-white transition-all duration-300 ease-in-out shadow-md rounded-full px-2 py-2 hover:scale-110"
+>
+  See Menu
+</button>
+
+
         </div>
       </div>
       <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">

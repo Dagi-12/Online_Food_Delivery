@@ -79,10 +79,10 @@ export const Header = ({ cartCount }) => {
                 <div className="font-bold nav-menu-wrapper flex items-center justify-between space-x-10">
                     <Link to="/" className="text-2xl hover:text-black"><FaHome className="inline-block mr-2 text-4xl hover:text-black" /></Link>
                     <Link to="about-us" className="text-2xl hover:text-black">About</Link>
-                    <Link to="contact-us" className="text-2xl hover:text-black">Contact_Us</Link>
+                    <Link to="contact-us" className="text-2xl hover:text-black pr-2">Contact_Us</Link>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
-                    <Link to="/cart" className="mr-4 relative ">
+                    <Link to="/cart" className="mr-4 relative ml-2 ">
                         <img  src={cartIcon} alt="cart"/>
                         {cartCount > 0 ? <div className="rounded-full bg-yellow-400 text-white inline-flex justify-center items-center w-full absolute -top-1 -right-1">{cartCount}</div> : null}
                     </Link>
@@ -91,8 +91,8 @@ export const Header = ({ cartCount }) => {
                         <Button onClick={handleLogout} className="hover:text-black"> <FaSignOutAlt className="inline-block mr-2 " />Log Out</Button> : 
                         (
                             <>
-                             <Link className="text-xl font-bold hover:text-black" to="/login">Log In</Link>
-                             <Link className="text-xl font-bold hover:text-black"to="/register ">Sign Up</Link>
+                             <Link className="text-xl font-bold hover:text-black " to="/login">Log In</Link>
+                             <Link className="text-xl font-bold hover:text-black"to="/register  ">Sign Up</Link>
                             </>
                         )
                     }

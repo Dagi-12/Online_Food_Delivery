@@ -12,7 +12,7 @@ export default function PartnerSuccess() {
 
   return (
     <div className="banner w-full md:w-full px-7 mx-auto relative flex items-center justify-center bg-white p-5 mt-20 mb-20">
-      <div className="banner bg-white shadow-emerald-700 rounded-lg overflow-hidden shadow-md rounded-lg banner-description w-full md:w-1/2 p-3 ">
+      <div className="banner bg-white shadow-amber-500 rounded-lg overflow-hidden shadow-md rounded-lg banner-description w-full md:w-1/2 p-3 ">
         <CSSTransition
           in={true}
           appear={true}

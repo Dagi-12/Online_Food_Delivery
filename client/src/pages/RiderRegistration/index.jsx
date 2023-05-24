@@ -51,28 +51,33 @@ export const RiderRegistration = () => {
         <div className="p-10 rounded-xl z-10 w-full h-full bg-white">
           <h5 className="text-3xl text-center">Rider Registration</h5>
           <form className="w-full space-y-6 h-full" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label htmlFor="firstName" className="block text-lg font-medium text-orange-400">First Name</label>
-              <input
-                {...register('firstName',{ required: true })}
-                id="firstName"
-                type="text"
-                // required
-                className="block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200"
-              />
-              {errors.firstName && <p className="text-red-600">First Name is required</p>}
-            </div>
-            <div>
-              <label htmlFor="lastName" className="block text-lg font-medium text-orange-400">Last Name</label>
-              <input
-                {...register('lastName',{ required: true })}
-                id="lastName"
-                type="text"
-                // required
-                className="block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200"
-              />
-              {errors.lastName && <p className="text-red-600">Last name is required</p>}
-            </div>
+           <div>
+  <label htmlFor="firstName" className="block text-lg font-medium text-orange-400">First Name</label>
+  <input
+    {...register('firstName', {
+      required: true,
+      pattern: /^[A-Za-z]+$/i
+    })}
+    id="firstName"
+    type="text"
+    className="block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200"
+  />
+  {errors.firstName && <p className="text-red-600">First Name is required and should only contain characters</p>}
+</div>
+<div>
+  <label htmlFor="lastName" className="block text-lg font-medium text-orange-400">Last Name</label>
+  <input
+    {...register('lastName', {
+      required: true,
+      pattern: /^[A-Za-z]+$/i
+    })}
+    id="lastName"
+    type="text"
+    className="block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200"
+  />
+  {errors.lastName && <p className="text-red-600">Last name is required and should only contain characters</p>}
+</div>
+
             <div>
               <label htmlFor="email" className="block text-lg font-medium text-orange-400">Email</label>
               <input
@@ -85,16 +90,25 @@ export const RiderRegistration = () => {
               {errors.email && <p className="text-red-600">Email is required</p>}
             </div>
             <div>
-              <label htmlFor="phone" className="block text-lg font-medium text-orange-400">Phone Number</label>
-              <input
-                {...register('phone', { required: true })}
-                id="phone"
-                type="tel"
-                // required
-                className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.phone ? "border-red-500" : ""}`}
-              />
-              {errors.phone && <p className="text-red-600">Phone number is required</p>}
-            </div>
+  <label htmlFor="phone" className="block text-lg font-medium text-orange-400">Phone Number</label>
+  <input
+    {...register('phone', {
+      required: true,
+      pattern: /^\d+$/,
+      minLength: 10,
+      maxLength: 10
+    })}
+    id="phone"
+    type="tel"
+    className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.phone ? 'border-red-500' : ''}`}
+  />
+  {errors.phone && (
+    <p className="text-red-600">
+      wrong format, Enter a valid phone number
+    </p>
+  )}
+</div>
+
             <div>
   <label htmlFor="vehicleType" className="block text-lg font-medium text-orange-400">Vehicle Type</label>
 <div>

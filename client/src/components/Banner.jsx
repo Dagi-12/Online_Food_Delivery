@@ -33,7 +33,7 @@ export const Banner = () => {
         <div className="btn-container">
    <button
   onClick={handleSeeMenu}
-  className="text-white font-bold text-2xl bg-orange-400 hover:bg-orange-500 hover:text-white transition-all duration-300 ease-in-out shadow-md rounded-full px-2 py-2 hover:scale-110"
+  className="text-white font-bold text-2xl bg-orange-400 hover:bg-orange-500 hover:text-white transition-all duration-300 ease-in-out shadow-md rounded-full px-2 py-3 hover:scale-110"
 >
   See Menu
 </button>

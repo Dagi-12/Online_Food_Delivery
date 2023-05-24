@@ -9,7 +9,7 @@ export const RiderSucess = () => {
 
   return (
     <div className="banner w-full md:w-full px-7 mx-auto relative flex items-center justify-between bg-white">
-      <div className="banner bg-white shadow-red-600 rounded-lg overflow-hidden shadow-md rounded-lg banner-description w-full md:w-1/2 p-3">
+      <div className="banner bg-white shadow-amber-500 rounded-lg overflow-hidden shadow-md rounded-lg banner-description w-full md:w-1/2 p-3">
         <h2 className="mb-6 text-4xl font-bold text-green-500">
           Dear <span className="text-orange-500">{capitalizedFirstName}</span>, your application has been submitted successfully!
         </h2>

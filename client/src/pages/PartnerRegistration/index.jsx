@@ -130,17 +130,18 @@ export default function PartnerRegistration() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-lg font-medium text-orange-400">Phone Number</label>
-              <input
-                {...register('phone', { required: true })}
-                id="phone"
-                type="tel"
-                required
-                placeholder='Phone No.'
-                className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 $`}
-              />
-              {/* {errors.phone && <p className="text-red-600">Phone number is required</p>} */}
-            </div>
+                  <label htmlFor="phone" className="block text-lg font-medium text-orange-400">Phone Number</label>
+                  <input
+                    {...register('phone', { required: true, pattern: /^[0-9]{10}$/ })}
+                    id="phone"
+                    type="tel"
+                    required
+                    placeholder="Phone No."
+                    className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.phone ? 'border-red-500' : ''}`}
+                  />
+                  {errors.phone && <p className="text-red-600">Please enter a valid phone number</p>}
+                </div>
+                
             
  <div>
    <label htmlFor="recentAchivements" className="block text-lg font-medium text-orange-400">Recent Achivements</label>

@@ -63,6 +63,8 @@ const authRouter=require('./routes/auths')
 const contactUsRouter=require('./routes/contactUsRouter')
 //restaurants 
 const restaurantRouter=require('./routes/restaurantRouter')
+//valid riders
+const validRiderRouter = require("./routes/validRiderRouter");
 //order
 const orderRouter = require('./routes/orderRouter');
 
@@ -72,6 +74,7 @@ const Partner = require('./models/partnerModel');
 const ContactUs=require('./models/contactUsModel');
 const Rider=require('./models/riderModel');
 const Restaurant=require('./models/restaurantModel');
+const ValidRider = require('./models/validRiderModel');
 
 
 var corsOptions = {
@@ -97,6 +100,7 @@ app.use('/api/', authRouter);
 app.use('/api/', contactUsRouter);
 app.use('/api/', restaurantRouter);
 app.use('/api/', orderRouter);
+app.use('/api/', validRiderRouter);
 //products
 // app.use('/api/', productsRouter);
 
@@ -186,6 +190,18 @@ app.delete("/products", async (req, res) => {
         console.log(error)
     }
  })
+// Route for deleting a feedback
+app.delete("/deleteFeedback/:id", async (req, res) => {
+  const feedbackId = req.params.id;
+
+  try {
+    await ContactUs.findByIdAndDelete(feedbackId);
+    res.json({ message: "Feedback deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to delete feedback" });
+  }
+});
 
  //Creating endpoint for fetching data of partners requests
 app.get("/getAllPartners",async(req,res)=>{
@@ -196,6 +212,21 @@ app.get("/getAllPartners",async(req,res)=>{
         console.log(error)
     }
 })
+//deleting partner 
+app.delete("/deletePartner/:partnerId", async (req, res) => {
+  const partnerId = req.params.partnerId;
+  try {
+    const deletedPartner = await Partner.findByIdAndRemove(partnerId);
+    if (deletedPartner) {
+      res.send({ status: "ok", message: "Partner request deleted successfully" });
+    } else {
+      res.status(404).send({ status: "error", message: "Partner request not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ status: "error", message: "Failed to delete partner request" });
+  }
+});
 
  //creating endpoint for rider application 
 app.get("/getRiderApplication",async(req,res)=>{
@@ -206,6 +237,21 @@ app.get("/getRiderApplication",async(req,res)=>{
         console.log(error)
     }
 })
+//deleting rider application
+app.delete("/deleteRiderApplication/:riderId", async (req, res) => {
+  const riderId = req.params.riderId;
+  try {
+    const deletedRider = await Rider.findByIdAndRemove(riderId);
+    if (deletedRider) {
+      res.send({ status: "ok", message: "Rider application deleted successfully" });
+    } else {
+      res.status(404).send({ status: "error", message: "Rider application not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ status: "error", message: "Failed to delete rider application" });
+  }
+});
 
 //creating endpoint for fetching data for all restaurants(registerd partners)
 app.get("/getAllRestaurants",async(req,res)=>{
@@ -215,7 +261,16 @@ app.get("/getAllRestaurants",async(req,res)=>{
     }catch(error){
         console.log(error)
     }   
-})   
+})  
+//endpoint for fetching valid riders
+ app.get("/getValidRiders",async(req,res)=>{
+    try{
+        const validRider=await ValidRider.find({});
+        res.send({status:"ok",data:validRider});
+    }catch(error){
+        console.log(error)
+    }   
+}) 
 //orders recording endpoint
 
 

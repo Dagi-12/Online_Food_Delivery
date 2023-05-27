@@ -94,7 +94,7 @@ export const RiderRegistration = () => {
   <input
     {...register('phone', {
       required: true,
-      pattern: /^\d+$/,
+      pattern: /^09[0-9]{8}$/,
       minLength: 10,
       maxLength: 10
     })}

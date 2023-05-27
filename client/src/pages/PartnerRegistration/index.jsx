@@ -132,7 +132,7 @@ export default function PartnerRegistration() {
             <div>
                   <label htmlFor="phone" className="block text-lg font-medium text-orange-400">Phone Number</label>
                   <input
-                    {...register('phone', { required: true, pattern: /^[0-9]{10}$/ })}
+                     {...register('phone', { required: true, pattern: /^09[0-9]{8}$/ })}
                     id="phone"
                     type="tel"
                     required

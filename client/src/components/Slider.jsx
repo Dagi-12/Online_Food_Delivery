@@ -63,6 +63,7 @@ const Slider = () => {
             src={step.image}
             alt={step.imageAlt}
             className="rounded-lg shadow-md mb-4 max-w-xs"
+             style={{ maxWidth: '200px' }}
           />
           <p className="text-lg font-semibold p-4 bg-white rounded-sm">
             {step.description}

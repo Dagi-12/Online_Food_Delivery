@@ -17,7 +17,7 @@ export const ProductsSummary = () => {
       ))}
       
       {/* Display total cart price */}
-      <div className='mt-4 font-bold text-xl text-red-500'>Total: {total}$</div>
+      <div className='mt-4 font-bold text-xl text-red-500'>Total: {total} ETB</div>
       
     </div>
   )

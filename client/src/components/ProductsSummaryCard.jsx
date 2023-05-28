@@ -22,7 +22,7 @@ export const ProductsSummaryCard = ({ product }) => {
                     <span className="p-1">{product.amount}</span>
                     <button className="p-1"  onClick={() => dispatch(incrementProductAmount(product.id))}>+</button>
                 </div>
-                <div className="summary-price">{`${summaryPrice}$`}</div>
+                <div className="summary-price">{`${summaryPrice}ETB`}</div>
             </div>
         </div>
     )

@@ -19,7 +19,7 @@ const ProductDetailCard = ({ product, onAddProduct }) => {
         />
       </div>
       <div className="w-full flex items-center justify-center">
-        <Button onClick={onAddProduct}>
+        <Button onClick={onAddProduct} className="hover:text-black">
           Add to Cart <FaShoppingCart className="inline-block mr-2" />
         </Button>
       </div>

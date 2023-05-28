@@ -1,20 +1,22 @@
-import Button from "./elements/Button"
-
+// import Button from "./elements/Button";
 import { FaMotorcycle } from "react-icons/fa";
+
 export const RideWithUs = () => {
   return (
-    <div className="banner w-full md:w-2/3 px-7 mx-auto relative flex items-center-justify-between ">
-      <div className="banner-image w-full md:w-1/2 p-3">
-        <img src={require("../assets/images/rider.jpg")} alt="banner" className="max-h-95" />
+    <div className="banner w-full md:w-2/3 px-7 mx-auto flex flex-col md:flex-row items-center justify-between">
+      <div className="banner-image w-full md:w-1/2 p-3 md:order-1">
+        <img src={require("../assets/images/rider.jpg")} alt="banner" className="max-h-95" style={{ maxHeight: '400px' }} />
       </div>
-      <div className="banner-description w-full md:w-1/2 p-3 flex flex-col items-start justify-center">
-        <h2 className="mb-6 text-6xl font-bold text-orange-400 ">Ride With Us !</h2>
-        <p className="font-semibold text-lg text-grey-600 py-2 text-black-400">Deliver with us and become a family, lets grow together.</p>
-        <div className="btn-container">
-        
-          <a href="/rider-registration" className="text-yellow-400  font-bold text-3xl  hover:text-yellow-500  text-decoration-line px 3 hover:scale-125 hover:text-4xl ">Register as a Rider<FaMotorcycle className="inline-block ml-2  " />  </a>
+      <div className="banner-description w-full md:w-1/2 p-3 flex flex-col items-start justify-center md:order-2">
+        <h2 className="mb-6 text-4xl md:text-6xl font-bold text-orange-400">Ride With Us!</h2>
+        <p className="font-semibold text-lg md:text-xl text-gray-600 py-2">Deliver with us and become a family. Let's grow together.</p>
+        <div className="btn-container mt-4">
+          <a href="/rider-registration" className="text-yellow-400 font-bold text-xl md:text-3xl hover:text-4xl hover:text-yellow-500  flex items-center">
+            Register as a Rider
+            <FaMotorcycle className="ml-2 text-4xl hover:text-4xl" />
+          </a>
         </div>
       </div>
     </div>
-  )
+  );
 }

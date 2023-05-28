@@ -37,16 +37,28 @@ export const RiderRegistration = () => {
 
   return (
     <>
-    <div className="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8">
-  <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Become a Rider for Our Company</h2>
-  <p className="text-gray-700 text-lg leading-loose mb-8">At our company, we're always on the lookout for talented and motivated riders to join our team. If you're passionate about delivering great service to our customers and want to become a part of our growing community, we encourage you to apply using the following form. Simply fill out your details and submit your application, and we'll get back to you as soon as possible.</p>
-  <p className="text-gray-700 text-lg leading-loose">After submitting your application, our team will carefully review your information and contact you to discuss the next steps in the application process. We appreciate your interest in working with our company, and we look forward to hearing from you soon.</p>
+   <div className="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8 mt-4 ">
+  <h2 className="text-3xl font-bold text-white text-center mb-8 animate-pulse bg-amber-300 rounded-xl p-3">Become a Rider for Our Company</h2>
+<div className="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="transform -skew-x-3 bg-gray-100 shadow-xl">
+    <div className="p-8">
+      <p className="text-gray-700 text-lg leading-loose mb-8 animate-fade-in-up">
+        At our company, we're always on the lookout for talented and motivated riders to join our team. If you're passionate about delivering great service to our customers and want to become a part of our growing community, we encourage you to apply using the following form. Simply fill out your details and submit your application, and we'll get back to you as soon as possible.
+      </p>
+      <p className="text-gray-700 text-lg leading-loose animate-fade-in-up">
+        After submitting your application, our team will carefully review your information and contact you to discuss the next steps in the application process. We appreciate your interest in working with our company, and we look forward to hearing from you soon.
+      </p>
+    </div>
+  </div>
 </div>
+
+</div>
+
 
     <div className=' m-50 '>
     <div className="h-full bg-white flex items-center justify-center mb-10 mt-10 " >
      
-      <div className="rounded-lg max-w-md w-full flex flex-col items-center justify-center relative">
+      <div className="rounded-lg max-w-xl w-full flex flex-col items-center justify-center relative">
         <div className="absolute inset-0 transition duration-300 animate-pink blur gradient bg-gradient-to-tr from-red-500 to-yellow-500"></div>
         <div className="p-10 rounded-xl z-10 w-full h-full bg-white">
           <h5 className="text-3xl text-center">Rider Registration</h5>

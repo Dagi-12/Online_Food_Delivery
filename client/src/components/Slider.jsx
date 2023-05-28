@@ -28,18 +28,13 @@ const Slider = () => {
     },
     {
       title: 'Step 5',
-      description: 'Fill the Address Form',
+      description: 'Fill the Address & Payment Form',
       image: require('../assets/images/address.jpg'),
       imageAlt: 'Filling address form',
     },
+
     {
       title: 'Step 6',
-      description: 'Fill Payment Form',
-      image: require('../assets/images/payment.jpg'),
-      imageAlt: 'Payment form filling',
-    },
-    {
-      title: 'Step 7',
       description: 'Order will be Placed',
       image: require('../assets/images/placeOrder.jpg'),
       imageAlt: 'Order placed',

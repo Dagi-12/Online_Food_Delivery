@@ -4,6 +4,7 @@ import { ProductsPreview } from '../../components/ProductsPreview'
 import { RideWithUs } from '../../components/RideWithUs'
 import { PartnerWithUs } from '../../components/PartnerWithUs'
 import Slider from '../../components/Slider';
+import Information from '../../components/Information'
 
  const Home=()=> {
       const images = [
@@ -15,9 +16,10 @@ import Slider from '../../components/Slider';
     <>  
     <Banner/>
     <ProductsPreview/>
-    <PartnerWithUs/>
+    <PartnerWithUs/><Information/>
     <RideWithUs/>  
      <Slider images={images} />
+     
     </>
     )
 }

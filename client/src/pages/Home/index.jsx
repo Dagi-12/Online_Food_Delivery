@@ -16,7 +16,8 @@ import Information from '../../components/Information'
     <>  
     <Banner/>
     <ProductsPreview/>
-    <PartnerWithUs/><Information/>
+    <PartnerWithUs/>
+    <Information/>
     <RideWithUs/>  
      <Slider images={images} />
      

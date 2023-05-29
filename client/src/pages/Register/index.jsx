@@ -72,9 +72,9 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen bg-white flex items-center justify-center">
+    <div className="h-screen bg-white flex items-center justify-center mt-20 mb-20 ">
       <div className="rounded-lg max-w-md w-full flex flex-col items-center justify-center relative">
-        <div className="absolute inset-0 transition duration-300 animate-pink blur gradient bg-gradient-to-tr from-purple-500 to-green-500"></div>
+        <div className="absolute inset-0 transition duration-300 animate-pink blur gradient bg-gradient-to-tr from-purple-500 to-green-500 "></div>
         <div className="p-10 rounded-xl z-10 w-full h-full bg-white">
           <h5 className="text-3xl">Register</h5>
           <form className="w-full space-y-6" onSubmit={handleSubmit(onSubmit)}>

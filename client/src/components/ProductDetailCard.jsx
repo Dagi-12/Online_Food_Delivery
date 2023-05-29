@@ -8,7 +8,7 @@ const ProductDetailCard = ({ product, onAddProduct }) => {
         <h2 className="text-2xl">{product.name}</h2>
         <p className="text-xl text-gray-500">{product.description}</p>
         <div className="flex items-center justify-between">
-          <div className="text-2xl text-black">{product.price}</div>
+          <div className="text-2xl text-black">{product.price} ETB</div>
         </div>
       </div>
       <div className="w-full flex items-center justify-center">

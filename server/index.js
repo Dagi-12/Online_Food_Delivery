@@ -271,6 +271,8 @@ app.get("/getAllRestaurants",async(req,res)=>{
         console.log(error)
     }   
 }) 
+//
+
 //orders recording endpoint
 
 

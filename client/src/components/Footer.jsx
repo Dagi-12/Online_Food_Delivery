@@ -50,7 +50,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between justify-center">
-        <span className="text-sm text-gray-300 sm:text-center ">© 2023 Online Food Delivery. All Rights Reserved.</span>
+        <span className="text-sm text-gray-300 sm:text-center ">© 2023 መሶብ Delivery. All Rights Reserved.</span>
       </div>
     </footer>
   );

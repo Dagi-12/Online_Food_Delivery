@@ -14,5 +14,23 @@ router.post('/orders', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
-
+router.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.json(orders);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+// Delete all orders
+router.delete('/orders', async (req, res) => {
+  try {
+    await Order.deleteMany();
+    res.json({ message: 'All orders deleted' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
 module.exports = router;

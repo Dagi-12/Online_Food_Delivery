@@ -24,25 +24,25 @@ export const Banner = () => {
   };
 
   return (
-    <div className="banner w-full md:w-2/3 px-7 mx-auto relative flex items-center justify-between">
+    <div className="banner w-full md:w-4/5 px-4 md:px-7 mx-auto relative flex flex-col md:flex-row items-center justify-between">
       <div className="banner-description w-full md:w-1/2 p-3">
-        <h2 className="mb-6 text-4xl font-bold text-black">Food Ordering Made Easy</h2>
-        <p className="font-semibold text-lg text-black py-2">
-          We deliver your favorites to your doorstep.
-        </p>
+      <h2 className="mb-4 text-4xl font-bold text-orange-500">"Food Ordering Made Easy"</h2>
+  <p className="font-semibold text-base md:text-lg text-black py-2 animate-fadeIn">
+  Experience the convenience of doorstep delivery. Enjoy mouthwatering pizzas, salads, burgers, and more, delivered hot and fresh to your door. Treat yourself to a delicious meal without leaving home.
+</p>
+
         <div className="btn-container">
-   <button
-  onClick={handleSeeMenu}
-  className="text-white font-bold text-2xl bg-orange-400 hover:bg-orange-500 hover:text-white transition-all duration-300 ease-in-out shadow-md rounded-full px-2 py-3 hover:scale-110"
->
-  See Menu
-</button>
-
-
+          <Button
+            onClick={handleSeeMenu}
+            variant="primary"
+            className="text-xl md:text-2xl mt-4 hover:bg-orange-500"
+          >
+            See Menu
+          </Button>
         </div>
       </div>
       <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">
-        <img src={require("../assets/images/food-banner.png")} alt="banner" className="max-h-95" />
+        <img src={require("../assets/images/bane.png")} alt="banner" className="max-h-72 md:max-h-95" />
       </div>
     </div>
   );

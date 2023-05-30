@@ -15,9 +15,12 @@ export const AddressForm = ({onTabSwitch,cart}) => {
     const dispatch=useDispatch();
 
 
+
+
+
     //email part
 const sendEmail = (data, cartValue, recipientEmail) => {
-  const { address, city, state } = data; // Extract the address value from data
+  const { address, city, phone } = data; // Extract the address value from data
 
   const formattedCartValue = cartValue.map((item) => {
     return `${item.name}: ${item.amount}`; // Format each item as "name: amount"
@@ -28,7 +31,7 @@ const sendEmail = (data, cartValue, recipientEmail) => {
   
     address: address, // Use the extracted address value
     city: city, // Use the extracted address value
-    state: state, // Use the extracted address value
+    phone: phone, // Use the extracted address value
     cartValue: formattedCartValue.join(","), // Join the formatted cartValue array with line breaks
   };
 
@@ -89,7 +92,7 @@ const sendEmail = (data, cartValue, recipientEmail) => {
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border roundedn shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="street address"
                     type="text"
-                    placeholder="Street Address"
+                    placeholder="Exact Street Address and Location"
                     />
                 {errors.address && <span className="text-red-500">This field is required</span>}
             </div>
@@ -101,18 +104,21 @@ const sendEmail = (data, cartValue, recipientEmail) => {
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border roundedn shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="city"
                     type="text"
+                    value={"BahirDar"}
                     placeholder="City"
                     />
                 </div>
                 <div className="mb-4 md:mr-2 md:mb-0 flex-1">
-                    <label className="block mb-2 text-sm font-bold text-gray-700" for="state">State</label>
+                    <label className="block mb-2 text-sm font-bold text-gray-700" for="phone">Phone</label>
                     <input 
-                    {...register('state')}
+                    {...register('phone',{required:true})}
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border roundedn shadow appearance-none focus:outline-none focus:shadow-outline"
-                    id="state"
-                    type="text"
-                    placeholder="state"
+                    id="phone"
+                    pattern="09\d{8}"
+                    type="tel"
+                    placeholder="phone"
                     />
+                     {errors.phone && <span className="text-red-500">This field is required</span>}
                 </div>
             </div>
             <div className="mb-4 md:flex md:justify-between">
@@ -123,10 +129,10 @@ const sendEmail = (data, cartValue, recipientEmail) => {
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border roundedn shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="country"
                     type="text"
-                    placeholder="Country"
+                    value={"Ethiopia"}
                     />
                 </div>
-                <div className="mb-4 md:mr-2 md:mb-0 flex-1">
+                {/* <div className="mb-4 md:mr-2 md:mb-0 flex-1">
                     <label className="block mb-2 text-sm font-bold text-gray-700" for="postalCode">Postal Code</label>
                     <input 
                     {...register('postalCode')}
@@ -135,7 +141,7 @@ const sendEmail = (data, cartValue, recipientEmail) => {
                     type="text"
                     placeholder="Postal Code"
                     />
-                </div>
+                </div> */}
             </div>
             <div className="flex justify-end p-2">
                 <Button variant="dark" className="flex items-center" type="submit"><span className="mr-1">Next</span><ArrowRightSvg /></Button>

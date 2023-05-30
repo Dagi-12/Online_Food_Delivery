@@ -8,7 +8,7 @@ export const Footer = () => {
           <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="/about" className="hover:text-orange-500">About</a>
+              <a href="/about-us" className="hover:text-orange-500">About</a>
             </li>
             <li className="mb-4">
               <a href="/login" className="hover:text-orange-500">Menu</a>
@@ -19,13 +19,13 @@ export const Footer = () => {
           <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase">Legal</h2>
           <ul className="text-gray-300">
             <li className="mb-4">
-              <a href="#" className="hover:text-orange-500">Privacy Policy</a>
+              <a href="/privacy-policy" className="hover:text-orange-500">Privacy Policy</a>
             </li>
             <li className="mb-4">
-              <a href="#" className="hover:text-orange-500">Licensing</a>
+              <a href="licensing" className="hover:text-orange-500">Licensing</a>
             </li>
             <li className="mb-4">
-              <a href="#" className="hover:text-orange-500">Terms &amp; Conditions</a>
+              <a href="/terms" className="hover:text-orange-500">Terms &amp; Conditions</a>
             </li>
           </ul>
         </div>

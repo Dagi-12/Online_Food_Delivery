@@ -15,6 +15,9 @@ import { Footer } from "../components/Footer";
 import  {RiderSucess}  from "../pages/RiderSucess";
 import PartnerSucess from "../pages/PartnerSucess";
 import { About } from "../pages/About";
+import Policy from "../pages/PrivacyPolicy";
+import Terms from "../pages/TermsAndConditions";
+import Licensing from "../pages/Licensing";
 const Navigation=()=>{
 
   const productsInCart = useSelector(cartProducts);
@@ -35,6 +38,11 @@ return(
         <Route path="/payment-sucess" element={<PaymentSuccess/>}/>
         <Route path="/rider-sucess" element={<RiderSucess/>}/>
         <Route path="/partner-sucess" element={<PartnerSucess/>}/>
+        <Route path="/privacy-policy" element={<Policy/>}/>
+        <Route path="/terms" element={<Terms/>}/>
+        <Route path="/licensing" element={<Licensing/>}/>
+
+
         
 
       </Routes>

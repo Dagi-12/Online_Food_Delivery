@@ -36,8 +36,10 @@ export default function PaymentForm() {
             </label>
             <input
               id="fname"
-              onChange={handleFnameChange}
-              
+             
+                pattern="[A-Za-z]+"
+                required 
+                 onChange={handleFnameChange}         
               type="text"
               className="bg-gray-100 px-3 py-2 rounded w-full"
             />
@@ -49,6 +51,8 @@ export default function PaymentForm() {
             <input
               id="lname"
               onChange={handleLnameChange}
+               pattern="[A-Za-z]+"
+               required
               type="text"
               className="bg-gray-100 px-3 py-2 rounded w-full"
             />

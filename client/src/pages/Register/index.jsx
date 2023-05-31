@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from '../../components/elements/Button';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
   let navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const password = watch('password');
 
@@ -71,6 +74,14 @@ const Register = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <div className="h-screen bg-white flex items-center justify-center mt-20 mb-20 ">
       <div className="rounded-lg max-w-md w-full flex flex-col items-center justify-center relative">
@@ -106,12 +117,21 @@ const Register = () => {
               <label htmlFor="password" className="block text-lg font-medium text-gray-400">
                 Password
               </label>
-              <input
-                {...register('password', { required: true, minLength: 8 })}
-                id="password"
-                type="password"
-                className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.password ? 'border-red-500' : ''}`}
-              />
+              <div className="relative">
+                <input
+                  {...register('password', { required: true, minLength: 8 })}
+                  id="password"
+                  type={showPassword ? 'text' : 'password'}
+                  className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.password ? 'border-red-500' : ''}`}
+                />
+                <button
+                  type="button"
+                  className="text-gray-500 focus:outline-none ml-2 hover:cursor-pointer hover:text-orange-500"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
               {errors.password && (
                 <p className="text-red-500">
                   Password must be at least 8 characters long
@@ -122,12 +142,21 @@ const Register = () => {
               <label htmlFor="confirmPassword" className="block text-lg font-medium text-gray-400">
                 Confirm Password
               </label>
-              <input
-                {...register('confirmPassword', { required: true, validate: (value) => value === password })}
-                id="confirmPassword"
-                type="password"
-                className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.confirmPassword ? 'border-red-500' : ''}`}
-              />
+              <div className="relative">
+                <input
+                  {...register('confirmPassword', { required: true, validate: (value) => value === password })}
+                  id="confirmPassword"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  className={`block appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200 ${errors.confirmPassword ? 'border-red-500' : ''}`}
+                />
+                <button
+                  type="button"
+                  className="text-gray-500 focus:outline-none ml-2 hover:cursor-pointer hover:text-orange-500"
+                  onClick={toggleConfirmPasswordVisibility}
+                >
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
               {errors.confirmPassword && (
                 <p className="text-red-500">Passwords do not match</p>
               )}

@@ -89,10 +89,10 @@ const Login = () => {
                 />
                 <button
                   type="button"
-                  className="text-gray-400 focus:outline-none ml-2"
+                  className="text-gray-500 focus:outline-none ml-2 hover:cursor-pointer hover:text-orange-500"
                   onClick={togglePasswordVisibility}
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  {showPassword ? "Hide_Password" : "Show_Password"}
                 </button>
               </div>
             </div>

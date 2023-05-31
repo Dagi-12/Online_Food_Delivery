@@ -55,12 +55,14 @@ export default function ContactUs() {
           <h1 className="font-bold mb-2 text-xl">Phone</h1>
         
           <p>+251 921792299</p>
+          <p>+251 949334834</p>
+          <p>+251 989860376</p>
         </div>
         <div className="w-full sm:w-auto mb-4 sm:mb-0">
           <h1 className="font-bold mb-2 text-xl">Email</h1>
           <p>Dagimawiengidawork371@gmail.com</p>
           <p>Temsgenteferi19@gmail.com</p>
-          <p>Memex@gmail.com</p>
+          <p>Anmawmamaru7@gmail.com</p>
         </div>
       </div></div>
       {/* 3section */}

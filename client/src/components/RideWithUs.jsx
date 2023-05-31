@@ -12,7 +12,7 @@ export const RideWithUs = () => {
         <p className="font-semibold text-lg md:text-xl text-gray-600 py-2">Deliver with us and become a family. Let's grow together.</p>
         <div className="btn-container mt-4">
           <a href="/rider-registration" className="text-yellow-400 font-bold text-xl md:text-3xl hover:text-4xl hover:text-yellow-500  flex items-center">
-            Register as a Rider
+            Apply as a Rider
             <FaMotorcycle className="ml-2 text-4xl hover:text-4xl" />
           </a>
         </div>

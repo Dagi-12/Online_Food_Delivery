@@ -17,7 +17,7 @@ export default function Pay({fname,lname,email,tx_ref,public_key,}) {
     <input type="hidden" name="description" value="Paying with Confidence with cha" />
     <input type="hidden" name="logo" value="https://yourcompany.com/logo.png" />
     <input type="hidden" name="callback_url" value="https://example.com/callbackurl" />
-    <input type="hidden" name="return_url" value="http://localhost:3000/menu" />
+    <input type="hidden" name="return_url" value="http://localhost:3000" />
     <input type="hidden" name="meta[title]" value="test" />
     <button type="submit" className='  bg-orange-400 rounded-md p-1.5 hover:bg-green-500 text-m text-bold '><FaMoneyCheckAlt className="inline-block mr-2  " />Pay Now</button>
 </form>

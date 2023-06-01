@@ -37,7 +37,7 @@ export const Banner = () => {
             variant="primary"
             className="text-xl md:text-2xl mt-4 hover:bg-orange-500"
           >
-           Order Now
+           See Menu
           </Button>
         </div>
       </div>

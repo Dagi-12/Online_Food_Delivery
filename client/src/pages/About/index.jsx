@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import FeaturedRestaurantsSlider from '../../components/FeaturedRestaurantsSlider';
 import { FaHeadset,FaLock,FaTruck } from  "react-icons/fa";
 import aboutImage from "../../assets/images/aboutus.png";
 
@@ -84,6 +84,8 @@ export const About = () => {
           </div>
         </div>
       </div>
+      <h2 className='text-3xl text-orange-500 text-center font-bold mb-5'>Featured Restaurants</h2>
+      < FeaturedRestaurantsSlider />
     </div>
   );
 };

@@ -7,11 +7,7 @@ import Slider from '../../components/Slider';
 import Information from '../../components/Information'
 
  const Home=()=> {
-      const images = [
-    require('../../assets/images/about-image.jpg'),
-    'https://example.com/image2.jpg',
-    'https://example.com/image3.jpg',
-  ];  
+   
   return (
     <>  
     <Banner/>
@@ -19,7 +15,7 @@ import Information from '../../components/Information'
     <PartnerWithUs/>
     <Information/>
     <RideWithUs/>  
-     <Slider images={images} />
+     <Slider  />
      
     </>
     )
